@@ -1,5 +1,5 @@
 {
-  "name": "mesto-with-react",
+  "name": "diplom-movies",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,7 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "npm run build && scp -r ./build/* serj@84.201.166.64:/home/serj/react-mesto-api-full/mesto-frontend",
+    "deploy": "npm run build && scp -r ./build/* serjo@84.201.166.64:/home/serjo/diplom-frontend",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
