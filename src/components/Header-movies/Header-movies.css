@@ -1,0 +1,171 @@
+.header__menu {
+  display: flex;
+  margin-left: 44px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  justify-content: space-between;
+}
+.header__container_movies {
+  display: flex;
+  flex-direction: row;
+  font-style: normal;
+  justify-content: center;
+  align-content: center;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+}
+.header__container_movies-center {
+  flex-grow: 1;
+}
+.header__link {
+  display: flex;
+  flex-direction: row;
+  background-color: #f4f4f4;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+.header__manicon {
+  width: 10px;
+  height: 10px;
+  align-self: center;
+}
+/* ////////// МЕНЮ ТОП ////////// */
+.header__account-menu {
+  margin-right: 13px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration: none;
+  color: black;
+  align-self: center;
+  text-decoration: none;
+}
+.header__account-menu:hover {
+  text-decoration: underline;
+}
+.header__account-menu_bold {
+  font-weight: bold;
+}
+
+/* /////// Leftside Меню ////////  */
+.header__rightside-menu {
+  visibility: hidden;
+}
+#menu__toggle-btn {
+  opacity: 0;
+}
+#menu__toggle-btn:checked ~ .rightmenu__box {
+  opacity: 1;
+  right: 0;
+}
+
+#menu__toggle-btn:checked ~ .menu__btn {
+  background-image: url(../../images/close-button.svg);
+  background-repeat: no-repeat;
+  top: 23px;
+  right: 23px;
+}
+/* label */
+.menu__btn {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 15px;
+  right: 30px;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  background-image: url(../../images/menu-icon.svg);
+  z-index: 4;
+}
+
+/* ОБЛАСТЬ ССЫЛОК */
+.rightmenu__box {
+  display: block;
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  right: -100%;
+  transition: right 0.3s ease;
+  height: 100%;
+  width: 47%;
+  margin: 0;
+  padding: 159px 90px 92px;
+  list-style: none;
+  text-align: center;
+  background-color: #fafafa;
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+}
+.rightmenu__item {
+  display: block;
+  color: #333;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  text-decoration: none;
+  margin-bottom: 28px;
+}
+.rightmenu__item:hover {
+  text-decoration: underline;
+}
+.rightmenu__item_underline {
+  text-decoration: underline;
+}
+
+/* ОБЛАСТЬ АККАУНТА */
+.right-menu__container {
+  display: flex;
+  flex-direction: row;
+  font-style: normal;
+  justify-content: center;
+  align-content: center;
+  margin-top: 400px;
+}
+.rightmenu__link {
+  text-decoration: none;
+  color: black;
+  align-self: center;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  margin-right: 13px;
+}
+.rightmenu__link_underline {
+  text-decoration: underline;
+}
+
+/* ///////////media//////////// */
+@media screen and (max-width: 999px) {
+  /* Скрываем топ меню */
+  .header__container_movies {
+    visibility: hidden;
+  }
+  /* Показываем кнопку */
+  .header__rightside-menu {
+    visibility: visible;
+  }
+}
+@media screen and (max-width: 523px) {
+  .header__account-menu {
+    display: none;
+  }
+  .header__container_movies {
+    font-size: 10px;
+    line-height: 16px;
+  }
+  .rightmenu__box {
+    width: 100%;
+    padding: 144px 10px 48px;
+  }
+  .menu__btn {
+    top: 13px;
+    right: 13px;
+  }
+}
