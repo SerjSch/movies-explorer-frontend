@@ -3,7 +3,7 @@
   justify-content: center;
   flex-direction: column;
   padding: 100px 70px;
-  background-color: #e6e6e6c9;
+  background-color: #F5F5F5;
 }
 
 .techs__list {
@@ -51,7 +51,6 @@
   line-height: 17px;
   letter-spacing: -0.04em;
   margin: 0 10px 0 0;
-  border: 1px solid #616161;
 }
 
 @media screen and (max-width: 999px) {

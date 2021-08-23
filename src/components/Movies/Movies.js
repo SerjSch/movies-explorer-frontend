@@ -11,8 +11,8 @@ function Movies() {
         <>
             <SearchForm />
             <MoviesCardList />
-            <LoadMore />
             <Preloader />
+            <LoadMore />
         </>
     );
 }
