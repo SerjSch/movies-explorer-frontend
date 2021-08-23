@@ -31,7 +31,7 @@
   color: black;
   background-color: transparent;
 }
-.login__input:active,:focus {
+.login__input:focus {
   border-bottom: 1px solid #2be080;
   box-shadow: 0px 14px 23px 0px rgb(0 255 41 / 10%);
 }
@@ -46,7 +46,7 @@
 }
 .login__button {
   min-height: 45px;
-  background-color: #2BE080;
+  background-color: #2be080;
   color: white;
   border: none;
   border-radius: 3px;
@@ -85,7 +85,7 @@
   opacity: 1;
 }
 .login__link {
-  color: #2BE080;
+  color: #2be080;
   text-decoration: none;
   margin-left: 6px;
 }
