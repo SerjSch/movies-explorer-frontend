@@ -1,3 +1,10 @@
+# Cсылка на ваш сгенерированный макет и домен, где лежит проект
+https://disk.yandex.ru/d/lP2-YK7BkxDl2A
+http://serjo.nomoredomains.club/
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

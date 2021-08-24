@@ -1,0 +1,121 @@
+.about {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 110px 70px;
+  background-color: #fafafa;
+}
+.about__title {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 27px;
+  padding-bottom: 23px;
+  margin: 0;
+}
+.about__line {
+  border-bottom: 1px solid black;
+}
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 40px;
+  padding-top: 70px;
+  text-align: left;
+}
+.column__title {
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  padding-bottom: 25px;
+  margin: 0;
+}
+
+.column__text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0;
+  padding-bottom: 110px;
+}
+.about__plan {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 36px;
+}
+.plan__scale {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+}
+.plan__scale_green {
+  background-color: #2BE080;
+}
+.plan__scale_grey {
+  background-color: #e6e6e6c9;
+  color: black;
+}
+.about__plan_text {
+  color: #a0a0a0;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 999px) {
+  .about {
+    padding: 90px 50px;
+  }
+  .columns {
+    grid-column-gap: 30px;
+  }
+  .column__title {
+    padding-bottom: 22px;
+  }
+  .column__text {
+    font-size: 12px;
+    line-height: 18px;
+    padding-bottom: 93px;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .about {
+    padding: 70px 18px;
+  }
+  .about__title {
+    font-size: 18px;
+    line-height: 22px;
+    padding-bottom: 28px;
+  }
+  .columns {
+    padding-top: 60px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .column__title {
+    font-size: 18px;
+    line-height: 22px;
+    padding-bottom: 15px;
+  }
+  .column__text {
+    font-size: 11px;
+    line-height: 16px;
+    padding-bottom: 56px;
+  }
+  .about__scale {
+    margin-top: 5px;
+    grid-template-rows: 35px;
+  }
+  .scale__visual {
+    font-size: 11px;
+    line-height: 13px;
+  }
+  .plan__scale {
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,30 @@
+.header {
+  background-color: #5c5c5c;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 70px;
+}
+.header_white {
+  background-color: #fff;
+}
+.header__logo {
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 38px;
+}
+
+/* ///////////Адаптация//////////// */
+@media screen and (max-width: 999px) {
+  .header {
+    padding: 20px 30px;
+  }
+}
+@media screen and (max-width: 567px) {
+  .header {
+    padding: 20px 15px;
+  }
+}

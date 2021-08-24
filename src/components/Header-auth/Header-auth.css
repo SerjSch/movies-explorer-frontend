@@ -1,0 +1,45 @@
+.header__container_auth {
+  display: flex;
+  flex-direction: row;
+  font-style: normal;
+  justify-content: center;
+  align-content: center;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.header__signup {
+  margin-right: 30px;
+  text-decoration: none;
+  color: white;
+  align-self: center;
+  cursor: pointer;
+}
+.header__button {
+  background-color: #2be080;
+  border-style: none;
+  border-radius: 3px;
+  width: 76px;
+  height: 32px;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.4s linear;
+}
+.header__button:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 523px) {
+  .header__container_auth {
+    font-size: 10px;
+    line-height: 16px;
+  }
+  .header__signup {
+    margin-right: 14px;
+  }
+  .header__button {
+    width: 54px;
+    height: 26px;
+  }
+}
