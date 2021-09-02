@@ -1,8 +1,9 @@
 # Cсылка на ваш сгенерированный макет и домен, где лежит проект
 https://disk.yandex.ru/d/lP2-YK7BkxDl2A
-http://serjo.nomoredomains.club/
+# # Cсылка на дипломный проект
+https://serjo.nomoredomains.club/
 
-
+#
 
 
 # Getting Started with Create React App

@@ -1,39 +1,67 @@
-import React from "react";
-import "./SearchForm.css";
-import searchButton from "../../images/find.svg";
+import React from 'react';
+import './SearchForm.css';
+import searchButton from '../../images/find.svg';
 
-function SearchForm() {
+function SearchForm({ onSubmitSearch, isLoading, onShortFilmFilter }) {
+  const [query, setQuery] = React.useState(''); // Запрос
+  const [isSubmitDisabled, setIsSubmitDisabled] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsSubmitDisabled(query === '');
+  }, [query]);
+
+  function handleOnChange(evt) {
+    setQuery(evt.target.value);
+  }
+  function handleOnSubmit(evt) {
+    evt.preventDefault();
+    onSubmitSearch(query);
+  }
+
+  function handleOnChangeFilter(evt) {
+    onShortFilmFilter(evt.target.checked);
+  }
+
   return (
-    <div className="search">  
-
-      <div className="search__form">
-
-        <div className="search__top-box">
+    <div className='search'>
+      <form className='search__form' onSubmit={handleOnSubmit}>
+        <div className='search__top-box'>
           <input
-            name="search"
-            placeholder="Фильм"
-            type="search"
-            className="search__input"
+            name='search'
+            placeholder='Фильм'
+            type='search'
+            className='search__input'
             required
+            onChange={handleOnChange}
+            disabled={isLoading}
           />
-          <button type="submit" className="search__button">
-            <img src={searchButton} alt="search button" className="search__image_button" />
+          <button
+            type='submit'
+            className={`search__button ${
+              isSubmitDisabled && 'search__button_disabled'
+            }`}
+            disabled={isSubmitDisabled || isLoading}>
+            <img
+              src={searchButton}
+              alt='search button'
+              className='search__image_button'
+            />
           </button>
         </div>
-
-        <div className="search__toggle-box">
+        {/* //////// ФИЛЬТР КОРОТКОМЕТРАЖКИ /////////// */}
+        <div className='search__toggle-box'>
           <input
-            type="checkbox"
-            name="toggle"
-            id="toggle-button"
-            className="switch__toggle-button"
+            type='checkbox'
+            name='toggle'
+            id='toggle-button'
+            className='switch__toggle-button'
+            onChange={handleOnChangeFilter}
           />
-          <label for="switch__toggle-button" className="switch__text">
+          <label htmlFor='switch__toggle-button' className='switch__text'>
             Короткометражки
           </label>
         </div>
-      </div>
-
+      </form>
     </div>
   );
 }
