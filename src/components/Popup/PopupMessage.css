@@ -1,0 +1,23 @@
+.popupMessage {
+  display:flex;
+  width:100%;
+  min-height: 100%;
+  overflow:hidden;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .3s, opacity .3s linear;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.popupMessage_is-open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popupMessage_text {
+  color: #2be080;
+  font-size: 14px;
+}

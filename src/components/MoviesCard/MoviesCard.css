@@ -1,5 +1,5 @@
 .grid__item {
-  border-radius: 5px;
+  border-radius: 11px;
   box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.05);
   overflow: hidden;
   background-color: #ffffff;
@@ -51,12 +51,12 @@
   outline: none;
   cursor: pointer;
   border: 2px solid white;
-  background: #fafafa;
+  background: #e6e6e6;
   border-radius: 50%;
   box-shadow: 0px 1px 3px 3px rgb(34 60 80 / 8%);
 }
 
-.switch__save-button:checked {
+.switch__save-button_checked {
   background-color: #2be080;
 }
 
@@ -71,18 +71,13 @@
   background-image: url(../../images/delbutton.svg);
 }
 
-@media screen and (max-width: 999px) {
-  .grid__image {
-    width: 100%;
-  }
+.grid__image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
 }
-@media screen and (max-width: 567px) {
-  .grid__image {
-    width: 100%;
-  }
-}
-@media screen and (max-width: 467px) {
-  .grid__image {
-    width: 100%;
-  }
+
+.grid__image:hover{
+  cursor:pointer;
+  opacity: 0.6;
 }

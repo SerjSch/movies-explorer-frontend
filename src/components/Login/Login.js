@@ -1,35 +1,81 @@
-import React from "react";
-import "./Login.css";
-import cLogo from "../../images/logo.svg";
-import { Link } from "react-router-dom";
+import React from 'react';
+import './Login.css';
+import mainLogo from '../../images/logo.svg';
+import { Link } from 'react-router-dom';
+import Validation from '../../utils/Validation.js';
+import Form from '../Form/Form.js';
 
-function Login() {
+function Login({ handleLogin }) {
+  const formValidation = Validation();
+  const { email, password } = formValidation.values;
+  const { values, onFocus, handleChange, isFocused, errors } = formValidation;
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleLogin(email, password);
+    formValidation.resetForm();
+  };
+
   return (
-    <div className="login">
-      <form className="login__form" type="submit">
-        <Link to="/">
-          <img alt="лого" src={cLogo} className="login__logo" />
+    <section className='login'>
+      <div className='login__form'>
+        <Link to='/'>
+          <img alt='лого' src={mainLogo} className='login__logo' />
         </Link>
-        <p className="login__header">Рады видеть!</p>
 
-        <label htmlFor="email">
-          <p className="login__label">E-mail</p>
-        </label>
-        <input name="email" className="login__input" type="email" required />
-        <span className="login__error login__error_is-active" id="description-error" />
+        <p className='login__header'>Рады видеть!</p>
 
-        <label htmlFor="password">
-          <p className="login__label">Пароль</p>
-        </label>
-        <input name="password" className="login__input" type="password" required />
-        <span className="login__error login__error_is-active" id="description-error" />
+        <Form
+          submitText={{
+            buttonText: 'Войти',
+            promt: 'Ещё не зарегистрированы?',
+            route: '/signup',
+            linkText: 'Регистрация',
+          }}
+          handleSubmit={handleSubmit}
+          validation={formValidation}
+          formName='login'
+          formPointsItem={
+            <>
+              <label htmlFor='email'>
+                <p className='login__label'>E-mail</p>
+              </label>
 
-        <button type="submit" className="login__button">Зарегистрироваться</button>
-        <div className="login__sign-in">Еще не зарегистрированы?
-          <Link to="/signup" className="login__link">Регистрация</Link>
-        </div>
-      </form>
-    </div>
+              <input
+                name='email'
+                type='email'
+                required
+                value={values.email || ''}
+                className={`login__input ${errors.email && 'login__error'}`}
+                onFocus={onFocus}
+                onChange={handleChange}
+                minLength='6'
+              />
+              <span className='login__error'>{isFocused && errors.email}</span>
+
+              <label htmlFor='password'>
+                <p className='login__label'>Пароль</p>
+              </label>
+
+              <input
+                name='password'
+                type='password'
+                required
+                autoComplete='on'
+                minLength='2'
+                className={`login__input ${errors.password && 'login__error'}`}
+                value={values.password || ''}
+                onFocus={onFocus}
+                onChange={handleChange}
+              />
+              <span className='login__error'>
+                {isFocused && errors.password}
+              </span>
+            </>
+          }
+        />
+      </div>
+    </section>
   );
 }
 

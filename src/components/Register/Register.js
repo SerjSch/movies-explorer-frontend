@@ -1,59 +1,103 @@
-import React from "react";
-import "../Login/Login.css";
-import cLogo from "../../images/logo.svg";
-import { Link } from "react-router-dom";
+import React from 'react';
+import '../Register/Register.css';
+import mainLogo from '../../images/logo.svg';
+import { Link } from 'react-router-dom';
+import Validation from '../../utils/Validation.js';
+import Form from '../Form/Form.js';
 
-function Register() {
+function Register({ handleRegister }) {
+  const formValidation = Validation();
+  const { name, email, password } = formValidation.values;
+  const { handleChange, values, errors, onFocus, isFocused } = formValidation;
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleRegister(name, email, password);
+    formValidation.resetForm();
+  };
+
   return (
-    <div className="login">
-      <form className="login__form" type="submit">
-      <Link to="/">
-        <img alt="лого" src={cLogo} className="login__logo" /></Link>
-        <p className="login__header">Добро пожаловать!</p>
+    <section className='register'>
+      <div className='register__form'>
+        <Link to='/'>
+          <img alt='лого' src={mainLogo} className='register__logo' />
+        </Link>
+        <p className='register__header'>Добро пожаловать!</p>
+        <Form
+          submitText={{
+            buttonText: 'Зарегистрироваться',
+            promt: 'Уже зарегистрированны?',
+            route: '/signin',
+            linkText: 'Войти',
+          }}
+          handleSubmit={handleSubmit}
+          validation={formValidation}
+          formName='register'
+          formPointsItem={
+            <>
+              <label htmlFor='name'>
+                <p className='register__label'>Имя</p>
+              </label>
 
-        <label htmlFor="name">
-          <p className="login__label">Имя</p>
-        </label>
-        <input name="name" className="login__input" type="email" required />
-        <span
-          className="login__error login__error_is-active"
-          id="description-error"
-        />
+              <input
+                name='name'
+                type='text'
+                required
+                minLength='2'
+                className={`register__input 
+                ${errors.name && 'register__error'}
+                `}
+                value={values.name || ''}
+                onFocus={onFocus}
+                onChange={handleChange}
+              />
+              <span className='register__error'>
+                {isFocused && errors.name}
+              </span>
 
-        <label htmlFor="email">
-          <p className="login__label">E-mail</p>
-        </label>
-        <input name="email" className="login__input" type="email" required />
-        <span
-          className="login__error login__error_is-active"
-          id="description-error"
-        />
+              <label htmlFor='email'>
+                <p className='register__label'>E-mail</p>
+              </label>
 
-        <label htmlFor="password">
-          <p className="login__label">Пароль</p>
-        </label>
-        <input
-          name="password"
-          className="login__input"
-          type="password"
-          required
-        />
-        <span
-          className="login__error login__error_is-active"
-          id="description-error"
-        />
+              <input
+                name='email'
+                type='email'
+                required
+                minLength='6'
+                className={`register__input ${
+                  errors.email && 'register__error'
+                }`}
+                value={values.email || ''}
+                onFocus={onFocus}
+                onChange={handleChange}
+              />
+              <span className='register__error'>
+                {isFocused && errors.email}
+              </span>
 
-        <button type="submit" className="login__button">
-          Зарегистрироваться
-        </button>
-        <div className="login__sign-in">
-          Уже зарегистрированы?
-          <Link to="/signin" className="login__link">
-            Войти
-          </Link>
-        </div>
-      </form>
-    </div>
+              <label htmlFor='password'>
+                <p className='register__label'>Пароль</p>
+              </label>
+              <input
+                name='password'
+                type='password'
+                required
+                autoComplete="on"
+                minLength='2'
+                className={`register__input ${
+                  errors.password && 'register__error'
+                }`}
+                value={values.password || ''}
+                onFocus={onFocus}
+                onChange={handleChange}
+              />
+              <span className='register__error'>
+                {isFocused && errors.password}
+              </span>
+            </>
+          }></Form>
+      </div>
+    </section>
   );
 }
 
