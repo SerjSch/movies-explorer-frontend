@@ -1,6 +1,6 @@
 # Cсылка на ваш сгенерированный макет и домен, где лежит проект
 https://disk.yandex.ru/d/lP2-YK7BkxDl2A
-#
+# # Cсылка на дипломный проект
 http://serjo.nomoredomains.club/
 
 
